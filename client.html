@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Job Tracker Application.">
+    <link rel="stylesheet" href="client.css">
+    <title>Job Tracker</title>
+</head>
+<body>
+    <header>
+        <h1 class="titlu">Job Tracker</h1>
+        <p>by Andrei Juguleanu</p>
+    </header>
+    <main>
+        <section>
+            <h2>Add a Company</h2>
+            <form id="formCompany">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Company Name">
+                <label for="industry">Industry:</label>
+                <input type="text" id="industry" name="industry" placeholder="Industry Name">
+                <label for="website">Website:</label>
+                <input type="text" id="website" name="website" placeholder="Company Website">
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Add an Application</h2>
+            <form id="formApplication">
+                <label for="companyID">Company ID:</label>
+                <input type="number" id="companyID" name="companyID" placeholder="Company ID">
+                <label for="role">Role:</label>
+                <input type="text" id="role" name="role" placeholder="Role">
+                <label for="status">Status:</label>
+                <select id="status" name="status">
+                    <option value="applied">Applied</option>
+                    <option value="interviewing">Interviewing</option>
+                    <option value="offer">Offer</option>
+                    <option value="rejected">Rejected</option>
+                </select>
+                <label for="dateApplied">Date Applied:</label>
+                <input type="date" id="dateApplied" name="dateApplied">
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Update Application Status</h2>
+            <form id="formUpdateStatus">
+                <label for="applicationIdUpdate">Application ID:</label>
+                <input type="number" id="applicationIdUpdate" name="applicationIdUpdate" placeholder="Application ID">
+                <label for="updatedStatus">Status:</label>
+                <select id="updatedStatus" name="status">
+                    <option value="applied">Applied</option>
+                    <option value="interviewing">Interviewing</option>
+                    <option value="offer">Offer</option>
+                    <option value="rejected">Rejected</option>
+                </select>
+                <button type="submit">Update</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Add an Interview</h2>
+            <form id="formInterview">
+                <label for="applicationIdInterview">Application ID:</label>
+                <input type="number" id="applicationIdInterview" name="applicationIdInterview" placeholder="Application ID">
+                <label for="round">Round:</label>
+                <input type="text" id="round" name="round" placeholder="e.g. Technical, HR">
+                <label for="notes">Notes:</label>
+                <input type="text" id="notes" name="notes" placeholder="Notes">
+                <label for="interviewDate">Date:</label>
+                <input type="date" id="interviewDate" name="interviewDate">
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>All Applications</h2>
+            <button id="btnListApplications">Refresh List</button>
+            <div id="applicationsList"></div>
+        </section>
+
+        <section>
+            <h2>Filter by Status</h2>
+            <select id="filterStatusSelect" name="status">
+                    <option value="applied">Applied</option>
+                    <option value="interviewing">Interviewing</option>
+                    <option value="offer">Offer</option>
+                    <option value="rejected">Rejected</option>
+            </select>
+            <button id="btnFilterStatus">Filter</button>
+            <div id="filteredList"></div>
+        </section>
+
+        <section>
+            <h2>Interviews for an Application</h2>
+            <input type="number" id="interviewsAppId" placeholder="Application ID">
+            <button id="btnViewInterviews">View Interviews</button>
+            <div id="interviewsList"></div>
+        </section>
+
+        <section>
+            <h2>Count by Status</h2>
+            <button id="btnCountStatus">Show Counts</button>
+            <div id="countList"></div>
+        </section>
+    </main>
+
+    <script src="client.js"></script>
+</body>
+</html>

@@ -124,4 +124,18 @@ app.get('/applications/status/group', async (req, res) => {
     }
 });
 
+app.delete('/applications/delete/:id', async (req, res) => {
+    const {id} = req.params;
+    try{
+        const result = await pool.query(
+            'DELETE FROM applications WHERE id = $1 RETURNING *',
+            [id]
+        );
+        res.json(result.rows)
+    } catch(err) {
+        console.error(err)
+        res.status(500).json({ error: 'Nu s-a putut sterge'});
+    }
+});
+
 app.listen(4000, () => console.log('Serverul este pornit pe portul 4000'));

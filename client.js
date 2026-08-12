@@ -33,6 +33,10 @@ const listInterviewsForApplications = document.getElementById('interviewsList');
 const btnCountStatus = document.getElementById('btnCountStatus');
 const showCountStatus = document.getElementById('countList');
 
+const btnDeleteApp = document.getElementById('btnDeleteApplication');
+const inputDelete = document.getElementById('deleteAppId');
+const deleteResult = document.getElementById('deleteResult');
+
 addCompany.addEventListener('submit', function(event) {
     event.preventDefault();
     let name = companyName.value;
@@ -175,6 +179,23 @@ btnCountStatus.addEventListener('click', function() {
         showCountStatus.innerHTML = '';
         data.forEach(app => {
             showCountStatus.innerHTML += `<div class="showCount">${app.status}: ${app.count}</div>`;
+        });
+    })
+    .catch(err => {
+        console.error('Error: ', err);
+    });
+});
+
+btnDeleteApp.addEventListener('click', function() {
+    const deleteID = inputDelete.value;
+    fetch(`http://localhost:4000/applications/delete/${deleteID}`, {
+        method: 'DELETE'
+    })
+    .then(response => response.json())
+    .then(data => {
+        deleteResult.innerHTML = '';
+        data.forEach(app => {
+            deleteResult.innerHTML += `<div class="deleteID">${app.id}</div>`;
         });
     })
     .catch(err => {

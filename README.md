@@ -1,0 +1,1 @@
+To make the test run 'npm test' in terminal

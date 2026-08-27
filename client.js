@@ -43,7 +43,7 @@ addCompany.addEventListener('submit', function(event) {
     let industry = companyIndustry.value;
     let website = companyWebsite.value
 
-    fetch('http://localhost:4000/companies', {
+    fetch('http://3.77.120.239:4000/companies', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -66,7 +66,7 @@ addApplication.addEventListener('submit', function(event) {
     let status = applicationStatus.value;
     let date = applicationDate.value;
 
-    fetch('http://localhost:4000/applications', {
+    fetch('http://3.77.120.239:4000/applications', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -87,7 +87,7 @@ updateApplication.addEventListener('submit', function(event) {
     let applicationID = updateApplicationID.value;
     let applicationStatusUpdate = updateApplicationStatus.value;
 
-    fetch(`http://localhost:4000/applications/${applicationID}`, {
+    fetch(`http://3.77.120.239:4000/applications/${applicationID}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
@@ -110,7 +110,7 @@ addInterview.addEventListener('submit', function(event) {
     let notes = interviewNotes.value;
     let date = interviewDate.value;
 
-    fetch('http://localhost:4000/interviews', {
+    fetch('http://3.77.120.239:4000/interviews', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -127,7 +127,7 @@ addInterview.addEventListener('submit', function(event) {
 });
 
 btnApplicationList.addEventListener('click', function() {
-    fetch('http://localhost:4000/applications')
+    fetch('http://3.77.120.239:4000/applications')
     .then(response => response.json())
     .then(data => {
         applicationsList.innerHTML = '';
@@ -143,7 +143,7 @@ btnApplicationList.addEventListener('click', function() {
 btnFilterbyStatus.addEventListener('click', function() {
     let statusValue = statusFilter.value;
 
-    fetch(`http://localhost:4000/applications/status?status=${statusValue}`)
+    fetch(`http://3.77.120.239:4000/applications/status?status=${statusValue}`)
     .then(response => response.json())
     .then(data => {
         filteredList.innerHTML = '';
@@ -159,7 +159,7 @@ btnFilterbyStatus.addEventListener('click', function() {
 btnInterviewsForApplication.addEventListener('click', function() {
     let appForInterviewID = applicationIDForInterviews.value;
 
-    fetch(`http://localhost:4000/interviews/${appForInterviewID}`)
+    fetch(`http://3.77.120.239:4000/interviews/${appForInterviewID}`)
     .then(response => response.json())
     .then(data => {
         listInterviewsForApplications.innerHTML = '';
@@ -173,7 +173,7 @@ btnInterviewsForApplication.addEventListener('click', function() {
 });
 
 btnCountStatus.addEventListener('click', function() {
-    fetch('http://localhost:4000/applications/status/group')
+    fetch('http://3.77.120.239:4000/applications/status/group')
     .then(response => response.json())
     .then(data => {
         showCountStatus.innerHTML = '';
@@ -188,7 +188,7 @@ btnCountStatus.addEventListener('click', function() {
 
 btnDeleteApp.addEventListener('click', function() {
     const deleteID = inputDelete.value;
-    fetch(`http://localhost:4000/applications/delete/${deleteID}`, {
+    fetch(`http://3.77.120.239:4000/applications/delete/${deleteID}`, {
         method: 'DELETE'
     })
     .then(response => response.json())
